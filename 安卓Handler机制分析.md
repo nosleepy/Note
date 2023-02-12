@@ -1,3 +1,11 @@
+---
+title: 安卓Handler机制分析
+date: 2023-01-01 19:06:13
+tags:
+categories:
+- 安卓
+---
+
 一般项目中子线程处理耗时任务，需要使用 Handler 来切换到主线程进行 UI 更新操作。
 
 ```java
