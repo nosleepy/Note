@@ -1,3 +1,11 @@
+---
+title: Fragment生命周期
+date: 2023-01-01 19:06:13
+tags:
+categories:
+- 安卓
+---
+
 **Fragment生命周期图**
 
 ![](https://img2020.cnblogs.com/blog/595094/202004/595094-20200429150020682-753845082.png)
