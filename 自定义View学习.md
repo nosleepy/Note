@@ -1,3 +1,11 @@
+---
+title: 自定义View学习
+date: 2023-01-01 19:06:13
+tags:
+categories:
+- 安卓
+---
+
 #### 为什么要自定义View
 
 + Android系统内置的View无法实现我们的需求，我们需要针对我们的业务需求定制我们想要的View。
