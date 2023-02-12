@@ -1,3 +1,11 @@
+---
+title: Gradle学习
+date: 2023-01-01 19:06:13
+tags:
+categories:
+- 安卓
+---
+
 #### Gradle系列学习
 
 ##### Groovy基础
