@@ -1,3 +1,11 @@
+---
+title: 自定义ScrollLinearLayout
+date: 2023-01-01 19:06:13
+tags:
+categories:
+- 安卓
+---
+
 安卓中的 LinearLayout 默认只能显示屏幕高度的内容，不支持滑动，通过自定义 View 来实现，需要继承 LinearLayout。
 
 ```java
