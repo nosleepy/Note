@@ -606,3 +606,17 @@ java -jar blog.jar
 [root@iZuf6a4hx8f9zxoz4hqzevZ www]# bg %1
 [1]+ java -jar blog.jar &
 ```
+
+**ln**：建立软链接
+
+```
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ ln -s helloworld.sh hello
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ ls -lah
+total 32K
+drwxrwxr-x  7 wlzhou wlzhou 4.0K Mar  9 12:08 .
+drwxr-xr-x 48 wlzhou wlzhou 4.0K Mar  9 10:57 ..
+lrwxrwxrwx  1 wlzhou wlzhou   13 Mar  9 12:08 hello -> helloworld.sh
+-rwxrw-r--  1 wlzhou wlzhou   32 Mar  9 12:06 helloworld.sh
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ ./hello
+hello world!!!
+```
