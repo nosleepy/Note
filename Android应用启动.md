@@ -434,15 +434,15 @@ public final class ViewRootImpl implements ViewParent,
         }
     }
             
-  		static class W extends IWindow.Stub {
-        		private final WeakReference<ViewRootImpl> mViewAncestor;
-        		private final IWindowSession mWindowSession;
+static class W extends IWindow.Stub {
+	private final WeakReference<ViewRootImpl> mViewAncestor;
+	private final IWindowSession mWindowSession;
 
-       			 W(ViewRootImpl viewAncestor) {
-           			 mViewAncestor = new WeakReference<ViewRootImpl>(viewAncestor);
-            			mWindowSession = viewAncestor.mWindowSession;
-       				 }
-       		 }
+	 W(ViewRootImpl viewAncestor) {
+		 mViewAncestor = new WeakReference<ViewRootImpl>(viewAncestor);
+		mWindowSession = viewAncestor.mWindowSession;
+	}
+ }
 }
 ```
 
