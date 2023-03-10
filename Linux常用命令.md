@@ -620,3 +620,9 @@ lrwxrwxrwx  1 wlzhou wlzhou   13 Mar  9 12:08 hello -> helloworld.sh
 wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ ./hello
 hello world!!!
 ```
+
+**mount**：磁盘挂载
+
+```
+mount /dev/vdb /data # 将/dev/vdb磁盘挂载到/data目录下
+```
