@@ -626,3 +626,11 @@ hello world!!!
 ```
 mount /dev/vdb /data # 将/dev/vdb磁盘挂载到/data目录下
 ```
+
+**fdisk -l**：查看磁盘信息
+
+```
+fdisk -l
+Device     Boot Start      End  Sectors  Size Id Type
+/dev/sdb1        2048 15378398 15376351  7.3G  c W95 FAT32 (LBA)
+```
