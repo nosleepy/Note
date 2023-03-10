@@ -68,8 +68,8 @@ AMS 处理 App 进程的 attachApplication 请求
 ```
 //ApplicationThread.java
 public final void bindApplication() {           
-            sendMessage(H.BIND_APPLICATION, data);
-        }
+    sendMessage(H.BIND_APPLICATION, data);
+}
 ```
 
 通过 Handler 发送一条创建 Application 的 BIND_APPLICATION 消息
