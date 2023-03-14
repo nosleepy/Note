@@ -39,7 +39,7 @@ dependencies {
 
 实现点击按钮 count 数量加一、横竖屏切换数量不变的案例
 
-![](https://raw.githubusercontent.com/nosleepy/picture/master/img/viewmodel_add_count_demo.png)
+<img src="https://raw.githubusercontent.com/nosleepy/picture/master/img/viewmodel_add_count_demo.png" style="zoom:30%;" />
 
 布局文件
 
