@@ -138,7 +138,7 @@ constructor(
 }
 ```
 
-`owner.viewModelStore` 得到 ViewModelStore 对象，内部封装了一个 HashMap 来存储 ViewModel
+owner.viewModelStore 得到 ViewModelStore 对象，内部封装了一个 HashMap 来存储 ViewModel
 
 ```java
 public class ViewModelStore {
@@ -211,7 +211,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
 }
 ```
 
-`getLastNonConfigurationInstance()` 方法获取 NonConfigurationInstances 对象，如果不为空，mViewModelStore 进行赋值，如果还是为空，则实例化 ViewModelStore 对象
+getLastNonConfigurationInstance() 方法获取 NonConfigurationInstances 对象，如果不为空，mViewModelStore 进行赋值，如果还是为空，则实例化 ViewModelStore 对象
 
 ```java
 public class Activity extends ContextThemeWrapper
@@ -239,7 +239,7 @@ public class Activity extends ContextThemeWrapper
  }
 ```
 
-NonConfigurationInstances 就是 mLastNonConfigurationInstances.activity，通过 `onRetainNonConfigurationInstance()` 方法返回
+NonConfigurationInstances 就是 mLastNonConfigurationInstances.activity，通过 onRetainNonConfigurationInstance() 方法返回
 
 ```java
 //ComponentActivity.java
@@ -334,7 +334,7 @@ void performDestroyActivity(ActivityClientRecord r, boolean finishing,
     }
 ```
 
-`r.lastNonConfigurationInstances` 通过 `retainNonConfigurationInstances` 方法来返回
+r.lastNonConfigurationInstances 通过 retainNonConfigurationInstances 方法来返回
 
 ```java
 //Activity.java
@@ -364,7 +364,7 @@ NonConfigurationInstances retainNonConfigurationInstances() {
     }
 ```
 
-界面销毁的时候通过 `retainNonConfigurationInstances` 来保存数据
+界面销毁的时候通过 retainNonConfigurationInstances 来保存数据
 
 重新回到 ViewModelProvider#get 方法
 
@@ -400,7 +400,7 @@ NonConfigurationInstances retainNonConfigurationInstances() {
     }
 ```
 
-以 `$DEFAULT_KEY:$canonicalName` 作为 key 去 ViewModelStore 中查询对应的 ViewModel，有就返回，没有通过 Factory 去生成
+以 $DEFAULT_KEY:$canonicalName 作为 key 去 ViewModelStore 中查询对应的 ViewModel，有就返回，没有通过 Factory 去生成
 
 ```java
 	//ViewModelProvider.Factory.java
