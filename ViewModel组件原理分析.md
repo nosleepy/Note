@@ -2,9 +2,9 @@
 title: ViewModel组件原理分析
 date: 2023-01-01 19:06:13
 tags:
+- JetPack
 categories:
 - 安卓
-- JetPack
 ---
 
 #### 简介
