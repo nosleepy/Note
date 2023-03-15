@@ -95,7 +95,11 @@ MainActivity        D  event = ON_DESTROY
 
 #### Lifecycle原理
 
+LifecycleObserver通过直接注册观察LifecycleOwner，当LifecycleOwner对象生命周期发生变化的时候就可以直接通知observer，Activity以及Fragment都实现了LifecycleOwner接口。这样我们的生命周期相关的回调就可以不用全都写在Activity 或者Fragment的生命周期方法里边，避免代码过度耦合。
+
 #### LivaData原理
+
+LiveData 是一种可观察的数据存储器类。与常规的可观察类不同，LiveData 具有生命周期感知能力，意指它遵循其他应用组件（如 activity、fragment 或 service）的生命周期。这种感知能力可确保 LiveData 仅更新处于活跃生命周期状态的应用组件观察者。
 
 #### 参考
 
