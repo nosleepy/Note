@@ -422,8 +422,8 @@ DefaultCallAdapterFactory 的 get 方法返回的就是具体的 CallAdapter 了
       final Executor executor =
           Utils.isAnnotationPresent(annotations, SkipCallbackExecutor.class) ? null : callbackExecutor;
 
-      return new CallAdapter < Object, Call <? >> () {@
-          Override
+      return new CallAdapter < Object, Call <? >> () {
+         @Override
           public Type responseType() {
               return responseType;
           }
@@ -515,7 +515,7 @@ public void enqueue(final Callback < T > callback) {
 
     call.enqueue(
         new okhttp3.Callback() {
-        	@Override
+            @Override
             public void onResponse(okhttp3.Call call, okhttp3.Response rawResponse) {
                 Response < T > response;
                 try {
