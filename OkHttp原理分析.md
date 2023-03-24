@@ -43,6 +43,8 @@ Thread {
 
 #### 初始化相关
 
+![](https://raw.githubusercontent.com/nosleepy/picture/master/img/okhttp_process.png)
+
 OkHttpClient 源码
 
 ```java
