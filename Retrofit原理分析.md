@@ -609,6 +609,8 @@ parseResponse 方法中通过 json 格式转换器将 OkHttp 返回的 response 
 
 Retrofit 主要用到了动态代理、反射、注解（未完成json转换这一过程）
 
+https://github.com/nosleepy/MyRetrofit
+
 #### 参考
 
 + [Retrofit动态代理+注解+反射简析](https://blog.csdn.net/niuyongzhi/article/details/125862776)
