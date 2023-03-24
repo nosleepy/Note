@@ -86,6 +86,8 @@ user[0] = User(id=1, email=george.bluth@reqres.in, firstName=null, lastName=null
 
 #### 原理分析
 
+![](https://raw.githubusercontent.com/nosleepy/picture/master/img/retrofit_process.png)
+
 retrofit 的创建使用构建者模式
 
 ```kotlin
