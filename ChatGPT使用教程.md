@@ -57,3 +57,4 @@ server {
 
 + [在ubantu18.04中安装最新的nodejs——nvm安装方式](https://blog.csdn.net/qq_43206482/article/details/123509340)
 + [ubuntu 安装 nginx](https://juejin.cn/post/7111157784707612708)
++ [Linux中crontab命令定时任务基本语法](https://blog.csdn.net/bolinmengling/article/details/123994386)
