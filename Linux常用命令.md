@@ -634,3 +634,16 @@ fdisk -l
 Device     Boot Start      End  Sectors  Size Id Type
 /dev/sdb1        2048 15378398 15376351  7.3G  c W95 FAT32 (LBA)
 ```
+
+**ssh**：登录远程服务器
+
+```
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~$ ssh root@nosleepy.cn
+```
+
+**scp**：本地和远程服务器之间拷贝文件
+
+```
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~$ scp -r /test root@nosleepy.cn:/data # 拷贝本地文件到远程服务器
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~$ scp -r root@nosleepy.cn:/data /test # 从远程服务器拷贝文件到本地
+```
