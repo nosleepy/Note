@@ -8,7 +8,7 @@ categories:
 
 #### 未适配前
 
-![](https://raw.githubusercontent.com/nosleepy/picture/master/img/before_adapter.png)
+<img src="https://raw.githubusercontent.com/nosleepy/picture/master/img/before_adapter.png" alt="" style="width: 30%;">
 
 布局文件内容
 
@@ -66,7 +66,7 @@ categories:
 window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 ```
 
-![](https://raw.githubusercontent.com/nosleepy/picture/master/img/adapter_4.4_step1.png)
+<img src="https://raw.githubusercontent.com/nosleepy/picture/master/img/adapter_4.4_step1.png" alt="" style="width: 30%;">
 
 发现状态栏为半透明的颜色, TextView 有占用状态栏的情况,设置 android:fitsSystemWindows 属性为 true
 
@@ -80,7 +80,7 @@ window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
     android:layout_height="wrap_content" />
 ```
 
-![](https://raw.githubusercontent.com/nosleepy/picture/master/img/adapter_4.4_step2.png)
+<img src="https://raw.githubusercontent.com/nosleepy/picture/master/img/adapter_4.4_step2.png" alt="" style="width: 30%;">
 
 属性的作用是给 view 添加一个值为状态栏高度的顶部 padding
 
@@ -92,7 +92,7 @@ window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 window.statusBarColor = Color.TRANSPARENT
 ```
 
-![](https://raw.githubusercontent.com/nosleepy/picture/master/img/adapter_5.0.png)
+<img src="https://raw.githubusercontent.com/nosleepy/picture/master/img/adapter_5.0.png" alt="" style="width: 30%;">
 
 #### 安卓6.0以上
 
@@ -102,7 +102,7 @@ window.statusBarColor = Color.TRANSPARENT
 window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 ```
 
-![](https://raw.githubusercontent.com/nosleepy/picture/master/img/adapter_6.0.png)
+<img src="https://raw.githubusercontent.com/nosleepy/picture/master/img/adapter_6.0.png" alt="" style="width: 30%;">
 
 #### 其他属性
 
@@ -114,7 +114,7 @@ window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     </style>
 ```
 
-![](https://raw.githubusercontent.com/nosleepy/picture/master/img/background_picture.png)
+<img src="https://raw.githubusercontent.com/nosleepy/picture/master/img/background_picture.png" alt="" style="width: 30%;">
 
 2. 设置背景透明
 
@@ -125,7 +125,7 @@ window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     </style>
 ```
 
-![](https://raw.githubusercontent.com/nosleepy/picture/master/img/background_transparent.png)
+<img src="https://raw.githubusercontent.com/nosleepy/picture/master/img/background_transparent.png" alt="" style="width: 30%;">
 
 #### 参考
 
