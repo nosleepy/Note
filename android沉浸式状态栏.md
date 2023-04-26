@@ -8,7 +8,7 @@ categories:
 
 #### 未适配前
 
-![](https://raw.githubusercontent.com/nosleepy/picture/master/img/adapter_before.png)
+![](https://raw.githubusercontent.com/nosleepy/picture/master/img/before_adapter.png)
 
 布局文件内容
 
