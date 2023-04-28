@@ -69,5 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
 #### 手写实现
 
+![](https://raw.githubusercontent.com/nosleepy/picture/master/img/glide_process.png)
+
 + [手写Glide框架-csdn](https://blog.csdn.net/tiangaopan/article/details/105316596)
 + [手写Glide框架-github](https://github.com/tianyalu/NeGlide2)
