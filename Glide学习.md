@@ -73,3 +73,5 @@ public class MainActivity extends AppCompatActivity {
 
 + [手写Glide框架-csdn](https://blog.csdn.net/tiangaopan/article/details/105316596)
 + [手写Glide框架-github](https://github.com/tianyalu/NeGlide2)
++ [Android 基于 Bitmap 的图片压缩方式探究](https://juejin.cn/post/6959840823261265957)
++ [Android进阶宝典 -- 学会Bitmap内存管理，你的App内存还会暴增吗？](https://blog.csdn.net/m0_71506521/article/details/130081589)
