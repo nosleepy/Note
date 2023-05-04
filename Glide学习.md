@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 结果截图
 
-![](https://raw.githubusercontent.com/nosleepy/picture/master/img/fruit/glide_load_apple.png)
+![](https://raw.githubusercontent.com/nosleepy/picture/main/img/glide_load_apple.png)
 
 #### 手写实现
 
