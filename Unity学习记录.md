@@ -11,3 +11,4 @@ categories:
 + [Ubuntu下编译运行C#——mono tools](https://www.cnblogs.com/zhuangliu/p/5524023.html)
 + [【Unity教程】零基础带你从小白到超神](https://www.bilibili.com/video/BV1gQ4y1e7SS)
 + [Android混淆配置（含androidx、kotlin）](https://blog.csdn.net/weixin_42602900/article/details/127628442)
++ [想提高应用程序的用户满意度——APK体积包优化少不了](https://zhuanlan.zhihu.com/p/625071359)
