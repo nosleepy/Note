@@ -532,3 +532,4 @@ info =  address: China telephone: 12345678
 #### 参考
 
 + [Android技能树 — 网络小结(6)之 OkHttp超超超超超超超详细解析](https://juejin.cn/post/6844903712809304072#heading-10)
++ [android okhttp 缓存设置](https://www.jianshu.com/p/5c46465c51f6)
