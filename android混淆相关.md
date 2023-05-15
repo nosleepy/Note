@@ -287,7 +287,7 @@ wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/Android/Sdk/tools/proguard/bin$
 
 ![](https://cdn.jsdelivr.net/gh/nosleepy/picture@master/img/proguard_debug.png)
 
-填写混淆前后的映射文件 mapping.txt 和需要还原的 logcta 异常日志，点击 Retrace 按钮就能还原混淆前的异常信息
+填写混淆前后的映射文件 mapping.txt 和需要还原的 logcat 异常日志，点击 Retrace 按钮就能还原混淆前的异常信息
 
 #### 参考
 
