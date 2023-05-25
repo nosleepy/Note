@@ -667,4 +667,3 @@ test/bb.txt:dadadjhello
 test/bb.txt:adadhellaeaehello
 test/aa.txt:hello
 ```
-```
