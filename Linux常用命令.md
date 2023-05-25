@@ -647,3 +647,24 @@ wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~$ ssh root@nosleepy.cn
 wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~$ scp -r /test root@nosleepy.cn:/data # 拷贝本地文件到远程服务器
 wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~$ scp -r root@nosleepy.cn:/data /test # 从远程服务器拷贝文件到本地
 ```
+
+**find**：查找包含指定内容的文件行
+
+```
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/桌面$ cat test/aa.txt 
+adadda
+daaaaas
+dasssssssssssssssss
+hello
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/桌面$ cat test/bb.txt 
+hello
+dadadjhello
+adadhellaeaehello
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/桌面$ find test | xargs grep "hello"
+grep: test: Is a directory
+test/bb.txt:hello
+test/bb.txt:dadadjhello
+test/bb.txt:adadhellaeaehello
+test/aa.txt:hello
+```
+```
