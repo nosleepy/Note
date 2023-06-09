@@ -17,14 +17,14 @@ echo "Hello World !"
 
 + 作为可执行程序运行
 
-```shell
+```sh
 chmod +x ./test.sh  #使脚本具有执行权限
 ./test.sh  #执行脚本
 ```
 
 + 作为解释器参数运行
 
-```shell
+```sh
 /bin/sh test.sh
 sh test.sh
 /bin/bash test.sh
@@ -35,7 +35,7 @@ source test.sh
 
 运行结果
 
-```shell
+```sh
 helloworld
 ```
 
@@ -43,7 +43,7 @@ helloworld
 
 + 使用 echo
 
-```shell
+```sh
 #!/bin/bash
 
 function getName() {
@@ -61,7 +61,7 @@ name = wlzhou
 
 + 使用 return
 
-```shell
+```sh
 #!/bin/bash
 
 function getAge() {
@@ -87,7 +87,7 @@ age = 100
 
 #### case 语法
 
-```shell
+```sh
 read answer
 case $answer in
   0) echo "input 0";;
@@ -102,7 +102,7 @@ esac
 
 定义一个 show 函数
 
-```shell
+```sh
 function show() {
     echo "---hello,world---"
 }
@@ -114,7 +114,7 @@ show #执行 ---hello,world---
 
 for 循环
 
-```shell
+```sh
 arr="1 2 3 4 5"
 for i in $arr # for i in 1 2 3 4 5, for i in {1..5}, for i in `seq 1 5, for i in `seq 5`
 do
@@ -134,7 +134,7 @@ done
 
 while 循环
 
-```shell
+```sh
 var=0
 while [ $var -lt 3 ]
 do
@@ -153,7 +153,7 @@ var = 2
 
 break 和 continue
 
-```shell
+```sh
 var=0
 
 while [ $var -lt 10 ]; do
@@ -180,7 +180,7 @@ var = 4
 
 判断字符串是否为空
 
-```shell
+```sh
 # -z 为空, -n 不为空
 str=""
 
@@ -195,7 +195,7 @@ fi
 
 判断字符串是否相等
 
-```shell
+```sh
 str="wlzhou"
 
 if [ $str = "wlzhou" ]; then
@@ -209,7 +209,7 @@ fi
 
 判断数字是否相等
 
-```shell
+```sh
 # -eq(=) -gt(>) -lt(<) -ge(>=) -le(<=)
 a=5
 b=10
@@ -224,7 +224,7 @@ fi
 
 文件判断
 
-```shell
+```sh
 if [ -f test.sh ]; then
   echo "is file"
 else
@@ -236,7 +236,7 @@ fi
 
 目录判断
 
-```shell
+```sh
 if [ -d system ]; then
   echo "is dir"
 else
@@ -248,7 +248,7 @@ fi
 
 逻辑操作
 
-```shell
+```sh
 # -o -a
 if [ -d system -a -f test.sh ]; then
   echo "is ok"
@@ -263,7 +263,7 @@ fi
 
 变量的定义和初始化
 
-```shell
+```sh
 name="wlzhou"
 echo "name = $name" # name = wlzhou
 echo "${name}ok" # wlzhouok
@@ -271,14 +271,14 @@ echo "${name}ok" # wlzhouok
 
 shell 中执行 linux 命令
 
-```shell
+```sh
 PWD=`pwd`
 echo "PWD = $PWD" # PWD = /media/wlzhou/bak/gwn73xx
 ```
 
 (())处理数字运算
 
-```shell
+```sh
 for((i = 0;i<3;i++))
 do
   echo "i = $i"
