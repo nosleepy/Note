@@ -293,6 +293,22 @@ i = 1
 i = 2
 ```
 
+#### export 和 source
+
+export 使用
+
+```sh
+name="gs"
+export name # 设置环境变量name
+
+echo "name = $name" # 读取环境变量name
+```
+
+[source file 和 sh file 和 ./file 的区别](https://blog.csdn.net/qq_41253960/article/details/120286745)
+
++ sh file和./file一样, 重新建立新的shell执行脚本, 子shell继承父shell的环境变量(export了才是）, 但是子shell新建的改变的变量不会影响父shell
++ source file, 读取file中的脚本依次在当前shell中执行, 没有建立新的子shell
+
 #### 参考
 
 + [Shell 教程](https://www.runoob.com/linux/linux-shell.html)
