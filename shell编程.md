@@ -10,7 +10,7 @@ categories:
 
 创建一个 test.sh 文件
 
-```shell
+```sh
 #!/bin/bash
 echo "Hello World !"
 ```
