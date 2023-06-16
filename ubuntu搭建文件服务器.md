@@ -8,7 +8,7 @@ categories:
 
 apache2 服务器安装
 
-```shell
+```sh
 apt install apache2
 ```
 
@@ -18,7 +18,7 @@ apt install apache2
 
 基础命令
 
-```shell
+```sh
 /etc/init.d/apache2 start # 启动
 /etc/init.d/apache2 stop # 停止
 /etc/init.d/apache2 restart # 重启
@@ -26,7 +26,7 @@ apt install apache2
 
 在 /var/www/html 目录下创建软链接
 
-```shell
+```sh
 wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:/var/www/html$ ln -s ~/test files
 wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:/var/www/html$ ls -lah
 total 28K
@@ -40,7 +40,7 @@ lrwxrwxrwx 1 wlzhou wlzhou   17 Jun 15 10:53 files -> /home/wlzhou/test
 
 也可以直接将 /home/wlzhou/test 目录拷贝到 /var/www/html 目录
 
-```shell
+```sh
 wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:/var/www/html$ cp -r  ~/test files
 wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:/var/www/html$ ls -lah
 total 32K
@@ -50,7 +50,7 @@ drwxrwxr-x 3 wlzhou wlzhou 4.0K Jun 15 10:57 files
 
 修改默认端口为8080
 
-```shell
+```sh
 vim /etc/apache2/ports.conf # Listen 8080
 vim /etc/apache2/sites-enabled/000-default.conf # <VirtualHost *:8080>
 /etc/init.d/apache2 restart # 重启
@@ -58,7 +58,7 @@ vim /etc/apache2/sites-enabled/000-default.conf # <VirtualHost *:8080>
 
 wget 下载文件
 
-```shell
+```sh
 wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/mytest$ wget http://192.168.124.128/files/main.sh
 --2023-06-15 11:06:59--  http://192.168.124.128/files/main.sh
 Connecting to 192.168.124.128:80... connected.
@@ -77,7 +77,7 @@ total 12K
 
 curl 下载文件
 
-```shell
+```sh
 wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/mytest$ curl -O http://192.168.124.128/files/main.sh
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
