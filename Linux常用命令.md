@@ -667,3 +667,72 @@ test/bb.txt:dadadjhello
 test/bb.txt:adadhellaeaehello
 test/aa.txt:hello
 ```
+
+**awk**：文本分析工具
+
+log.txt文本内容如下：
+
+```
+2 this is a test
+3 Do you like awk
+This's a test
+10 There are orange,apple,mongo
+```
+
++ 用法一：
+
+```sh
+awk '{[pattern] action}' {filenames}   # 行匹配语句 awk '' 只能用单引号
+```
+
+每行按空格或TAB分割，输出文本中的1、4项
+
+```sh
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ awk '{print $1,$4}' log.txt
+2 a
+3 like
+This's 
+10 orange,apple,mongo
+```
+
+格式化输出
+
+```sh
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ awk '{printf "%-8s %-10s\n",$1,$4}' log.txt
+2        a         
+3        like      
+This's             
+10       orange,apple,mongo
+```
+
++ 用法二：
+
+```sh
+awk -F  #-F相当于内置变量FS, 指定分割字符
+```
+
+使用","分割
+
+```sh
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ awk -F, '{print $1,$2}'   log.txt
+2 this is a test 
+3 Do you like awk 
+This's a test 
+10 There are orange apple
+```
+
++ 用法三：
+
+```sh
+awk -v  # 设置变量
+```
+
+设置a=1
+
+```sh
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ awk -va=1 '{print $1,$1+a}' log.txt
+2 3
+3 4
+This's 1
+10 11
+```
