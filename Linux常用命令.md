@@ -736,3 +736,32 @@ wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ awk -va=1 '{print $1,$1+a
 This's 1
 10 11
 ```
+
+用法四：输出空格分割的字符串第几项
+
+```sh
+echo "1 2 3 4 5 6 7 8 9 10" | awk -v x=7 '{print $x}'
+printf %s "1 2 3 4 5 6 7 8 9 10" | awk -v x=7 '{print $x}'
+
+# 7
+```
+
+**grep**：过滤字符串
+
+普通匹配
+
+```sh
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ grep "this" log.txt 
+2 this is a test
+```
+
+正则匹配
+
+```sh
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ echo "12345" | grep -E "[0-9]{4}"
+12345
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ grep -E "[0-9]{1}" log.txt 
+2 this is a test
+3 Do you like awk
+10 There are orange,apple,mongo
+```
