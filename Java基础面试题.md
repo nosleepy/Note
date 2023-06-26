@@ -149,3 +149,9 @@ List<String> proxyInstance = (List<String>) Proxy.newProxyInstance(list.getClass
 **Comparable和Comparator区别是什么？**
 
 [Java 解惑：Comparable 和 Comparator 的区别](https://zhuanlan.zhihu.com/p/24081048)
+
+**LRU 算法**
+
++ 新数据直接插入到列表头部
++ 缓存数据被命中,将数据移动到列表头部
++ 缓存已满的时候,移除列表尾部数据
