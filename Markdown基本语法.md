@@ -199,6 +199,22 @@ cond(no)->op
 - [ ] https://github.com/octo-org/octo-repo/issues/740
 - [ ] Add delight to the experience when all tasks are complete :tada:
 
+## 上标
+
+```
+Markdown<sup>This is a superscript text</sup>
+```
+
+Markdown<sup>This is a superscript text</sup>
+
+## 下标
+
+```
+Markdown<sub>This is a subscript text</sub>
+```
+
+Markdown<sub>This is a subscript text</sub>
+
 ## 参考
 
 + [Markdown基本语法](https://www.jianshu.com/p/191d1e21f7ed)
