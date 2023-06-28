@@ -193,4 +193,139 @@ public class SellTicketTest2 {
 窗口2的票已售空
 ```
 
+## 3个线程打印ABC
 
++ 竞争型打印
+
+```java
+public class DemoTask implements Runnable {
+    // 这里将lock对象换成 Lock(ReentrantLock) 进行lock/unlock也是可以的
+    private static final Object lock = new Object();
+    private static final int MAX = 30;
+    private static int current = 0;
+    private final int index;
+
+    public DemoTask(int index) {
+        this.index = index;
+    }
+
+    @Override
+    public void run() {
+        while (current < MAX) {
+            synchronized (lock) {
+                if ((current < MAX) && (current % 3 == index)) {
+                    System.out.println((char) ('A' + current % 3));
+                    current++;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        List<Thread> threadList = Arrays.asList(
+                new Thread(new DemoTask(0)),
+                new Thread(new DemoTask(1)),
+                new Thread(new DemoTask(2))
+        );
+        threadList.forEach(Thread::start);
+    }
+}
+```
+
++ 协同型打印
+
+```java
+public class Main {
+    //定义一个共享变量,用来在线程中进行通信
+    private static final Object obj = new Object();
+    //定义一个变量来记录打印的次数,控制打印条件
+    private static int count = 1;
+
+    public static void main(String[] args) {
+        //创建三个线程,然后把三个任务分别放入这三个线程执行
+        //创建线程1执行任务1
+        new Thread(new Task1()).start();
+        //创建线程2执行任务2
+        new Thread(new Task2()).start();
+        //创建线程3执行任务4
+        new Thread(new Task3()).start();
+    }
+
+    //任务1
+    private static class Task1 implements Runnable {
+        @Override
+        public void run() {
+            synchronized (obj) {
+                //打印十次A
+                for (int i = 0; i < 10; i++) {
+                    //一直轮询,如果条件不是要打印A的条件,那么直接释放锁
+                    while (count % 3 != 1) {
+                        try {
+                            obj.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    //通知其他所有线程可以来抢占锁了,但是发现现在线程1在持有锁,其他线程还抢不到,只有等到线程1释放锁之后,才可以抢到锁
+                    obj.notifyAll();
+                    System.out.println("A");
+                    count++;
+                }
+            }
+        }
+    }
+
+    //任务2
+    private static class Task2 implements Runnable {
+        @Override
+        public void run() {
+            synchronized (obj) {
+                //打印十次B
+                for (int i = 0; i < 10; i++) {
+                    //一直轮询,如果条件不是要打印B的条件,那么直接释放锁
+                    while (count % 3 != 2) {
+                        try {
+                            obj.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    //通知其他所有线程可以来抢占锁了,但是发现现在线程2在持有锁,其他线程还抢不到,只有等到线程2释放锁之后,才可以抢到锁
+                    obj.notifyAll();
+                    System.out.println("B");
+                    count++;
+                }
+            }
+        }
+    }
+
+    //任务3
+    private static class Task3 implements Runnable {
+        @Override
+        public void run() {
+            synchronized (obj) {
+                //打印十次C
+                for (int i = 0; i < 10; i++) {
+                    //一直轮询,如果条件不是要打印C的条件,那么直接释放锁
+                    while (count % 3 != 0) {
+                        try {
+                            obj.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    //通知其他所有线程可以来抢占锁了,但是发现现在线程3在持有锁,其他线程还抢不到,只有等到线程3释放锁之后,才可以抢到锁
+                    obj.notifyAll();
+                    System.out.println("C");
+                    count++;
+                }
+            }
+        }
+    }
+}
+```
+
+## 参考
+
++ [如何优雅的让3个线程打印ABC](https://juejin.cn/post/6940274452559036453)
++ [三个线程交叉打印ABC（synchronized、wait/notify）](https://www.cnblogs.com/rao11/p/13728941.html)
