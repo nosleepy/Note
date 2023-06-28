@@ -116,7 +116,7 @@ for 循环
 
 ```sh
 arr="1 2 3 4 5"
-for i in $arr # for i in 1 2 3 4 5, for i in {1..5}, for i in `seq 1 5, for i in `seq 5`
+for i in $arr # for i in 1 2 3 4 5, for i in {1..5}, for i in `seq 1 5`, for i in `seq 5`
 do
   echo $i
 done
