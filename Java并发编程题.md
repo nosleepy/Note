@@ -212,10 +212,12 @@ public class DemoTask implements Runnable {
     @Override
     public void run() {
         while (current < MAX) {
-            synchronized (lock) {
-                if ((current < MAX) && (current % 3 == index)) {
-                    System.out.println((char) ('A' + current % 3));
-                    current++;
+            if (current % 3 == index) {
+                synchronized (lock) {
+                    if (current < MAX) {
+                        System.out.println((char) ('A' + current % 3)); // thread0打印'A',thread1打印'B',thread2打印'C'
+                        current++;
+                    }
                 }
             }
         }
