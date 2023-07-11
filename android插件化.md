@@ -274,9 +274,202 @@ public class MainActivity extends AppCompatActivity {
 
 #### 加载插件中的Activity
 
-// 待补充
+插件 module 中创建一个 PluginActivity
+
+```java
+public class PluginActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_plugin);
+    }
+}
+```
+
+1. 使用占坑 Activity
+
+宿主 app 的清单文件注册这个插件 Activity 信息
+
+```xml
+<activity android:name="com.gs.plugin.PluginActivity"/>
+```
+
+使用包名加类名的方式启动 activity
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        PluginManager.getInstance().loadPlugin(getApplicationContext(), "/data/data/com.gs.myapplication/plugin.apk");
+        Class<?> clazz = null;
+        try {
+            clazz = PluginManager.getInstance().getDexClassLoader().loadClass("com.gs.plugin.PluginActivity");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("com.gs.plugin","com.gs.plugin.PluginActivity"));
+        startActivity(intent);
+    }
+}
+```
+
+2. 使用 hook 方式
+
++ Hook AMS
+
+```java
+public static void HookAMS() {
+
+    try {
+        Class<?> atmClazz = Class.forName("android.app.ActivityTaskManager");
+        Field iActivityTaskManagerSingletonField = atmClazz.getDeclaredField("IActivityTaskManagerSingleton");
+        iActivityTaskManagerSingletonField.setAccessible(true);
+        Object atmSingleton = iActivityTaskManagerSingletonField.get(null);
+
+        Class<?> singletonClazz = Class.forName("android.util.Singleton");
+        Field mInstanceField = singletonClazz.getDeclaredField("mInstance");
+        mInstanceField.setAccessible(true);
+        final Object atmService = mInstanceField.get(atmSingleton);
+
+        Class<?> proxyClazz = Class.forName("android.app.IActivityTaskManager");
+        Object newProxyInstance = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{proxyClazz}, new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+                if (method.getName().equals("startActivity")) {
+                    int targetIndex = 0;
+                    //修改Intent的值
+                    for (int i = 0; i < args.length; i++) {
+                        if (args[i] instanceof Intent) {
+                            targetIndex = i;
+                            break;
+                        }
+                    }
+                    Intent oldIntent = (Intent) args[targetIndex];
+                    Intent proxyIntent = new Intent();
+                    proxyIntent.setComponent(new ComponentName("com.lay.image_process", "com.lay.image_process.MainActivity2"));
+                    proxyIntent.putExtra("old_intent", oldIntent);
+                    args[targetIndex] = proxyIntent;
+                }
+                Log.e("TAG", "atmService=" + atmService + " method=" + method + ", args=" + args);
+                return method.invoke(atmService, args);
+            }
+        });
+
+        mInstanceField.set(atmSingleton, newProxyInstance);
+
+    } catch (Exception e) {
+        Log.e("TAG", "e--" + e.getMessage());
+        e.printStackTrace();
+    }
+}
+```
+
++ Hook Handler
+
+```java
+public static void hookHandler() {
+
+        try {
+
+            Class<?> activityThreadClazz = Class.forName("android.app.ActivityThread");
+            //获取到ActivityThread对象
+            Field sCurrentActivityThreadField = activityThreadClazz.getDeclaredField("sCurrentActivityThread");
+            sCurrentActivityThreadField.setAccessible(true);
+            Object sCurrentActivityThread = sCurrentActivityThreadField.get(null);
+
+            //获取mH属性
+            Field mHField = activityThreadClazz.getDeclaredField("mH");
+            mHField.setAccessible(true);
+            //获取mH Handler对象
+            Object mH = mHField.get(sCurrentActivityThread);
+
+            //反射Handler
+            Class<?> handlerClazz = Class.forName("android.os.Handler");
+            Field mCallbackField = handlerClazz.getDeclaredField("mCallback");
+            mCallbackField.setAccessible(true);
+
+            //创建callback对象
+            Handler.Callback callback = new Handler.Callback() {
+                @Override
+                public boolean handleMessage(@NonNull Message msg) {
+
+                    //处理Intent替换的逻辑
+                    doIntentReplace(msg);
+                    return false;
+                }
+            };
+            //给系统Handler赋值
+            mCallbackField.set(mH, callback);
+
+        } catch (Exception exception) {
+
+        }
+
+    }
+
+    private static void doIntentReplace(Message msg) {
+        switch (msg.what) {
+            case 159:
+                //获取
+                Class<?> transactionClazz = msg.obj.getClass();
+                try {
+                    Field mActivityCallbacksField = transactionClazz.getDeclaredField("mActivityCallbacks");
+                    mActivityCallbacksField.setAccessible(true);
+                    List callbacks = (List) mActivityCallbacksField.get(msg.obj);
+
+                    for (int i = 0; i < callbacks.size(); i++) {
+                        Object transactionItem = callbacks.get(i);
+                        //判断是不是LaunchActivityItem
+                        if (transactionItem.getClass().getName().equals("android.app.servertransaction.LaunchActivityItem")) {
+                            //获取mIntent属性
+                            Field mIntentField = transactionItem.getClass().getDeclaredField("mIntent");
+                            mIntentField.setAccessible(true);
+                            Log.e("TAG", "intent " + mIntentField.get(transactionItem));
+                            Intent mIntent = (Intent) mIntentField.get(transactionItem);
+                            Intent oldIntent = mIntent.getParcelableExtra("old_intent");
+                            mIntentField.set(transactionItem, oldIntent);
+//                            mIntent.setComponent(oldIntent.getComponent()); 这种方式同样有效
+                        }
+                    }
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                break;
+        }
+    }
+```
+
++ 加载插件资源
+
+```java
+public class PluginActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_plugin);
+    }
+
+    @Override
+    public Resources getResources() {
+        PluginManager.getInstance().loadPlugin(getApplicationContext(), "/data/data/com.gs.plugin/plugin.apk");
+        return PluginManager.getInstance().getResources();
+    }
+}
+```
 
 #### 参考
 
 + [Android热修复及插件化原理](https://juejin.cn/post/7037041959352926221)
 + [Android进阶宝典 -- 插件化1（加载插件中类）](https://juejin.cn/post/7142475355293499422)
++ [Android进阶宝典 -- 插件化2（Hook启动插件中四大组件）](https://juejin.cn/post/7144243095989649415)
++ [Android进阶宝典 -- 插件化3（加载插件资源）](https://juejin.cn/post/7144627103122751518)
