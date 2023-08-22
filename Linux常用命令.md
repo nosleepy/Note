@@ -765,3 +765,10 @@ wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:~/test$ grep -E "[0-9]{1}" log.tx
 3 Do you like awk
 10 There are orange,apple,mongo
 ```
+
+**tr**：字符替换
+
+```sh
+wlzhou@wlzhou-Vostro-3888-China-HDD-Protection:/media/wlzhou/bak/gwn73xx/system/closesource$ echo "hello world" | tr 'h' 'a'
+aello world
+```
