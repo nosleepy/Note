@@ -67,6 +67,7 @@ class DiamondView @JvmOverloads constructor(context: Context?, attrs: AttributeS
         whitePaint.textAlign = Paint.Align.CENTER
     }
 
+    @Override
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val size = width
