@@ -71,7 +71,7 @@ android_app {
 编译完成后会在 out 目录生成一个 apk 文件
 
 ```shell
-[15/15] Install out/target/product/gsc3575/system/app/MeetingRoomPanel/MyCompose.apk
+[15/15] Install out/target/product/gsc3575/system/app/MyCompose/MyCompose.apk
 
 #### build completed successfully (01:28 (mm:ss)) ####
 ```
