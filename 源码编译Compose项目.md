@@ -10,6 +10,17 @@ categories:
 
 ![](https://cdn.jsdelivr.net/gh/nosleepy/picture@master/img/compose_project.png)
 
+AndroidManifest.xml 文件中添加包名
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.gs.mycompose">
+
+</manifest>
+```
+
 将 MyCompose 工程拷贝到 /media/wlzhou/bak/gsc3575/vendor/grandstream/packages/apps/ 目录下
 
 ![](https://cdn.jsdelivr.net/gh/nosleepy/picture@master/img/mycompose_position.png)
