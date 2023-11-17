@@ -75,3 +75,7 @@ android_app {
 ```shell
 adb install MyCompose.apk
 ```
+
+gsc3575应用截图
+
+![](https://cdn.jsdelivr.net/gh/nosleepy/picture@master/img/mycompose_app.png)
