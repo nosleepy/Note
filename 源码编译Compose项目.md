@@ -33,8 +33,6 @@ android_app {
 
     srcs: ["app/src/**/*.kt"],
 
-    defaults: ["platform_app_defaults"],
-
     manifest: "app/src/main/AndroidManifest.xml",
 
     resource_dirs: ["app/src/main/res"],
@@ -42,10 +40,6 @@ android_app {
     certificate: "platform",
 
     platform_apis: true,
-
-    dex_preopt: {
-        enabled: false,
-    },
 
     static_libs: [
         "androidx.compose.runtime_runtime",
