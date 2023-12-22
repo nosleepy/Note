@@ -90,10 +90,6 @@ fun Test() {
 
 进入组合, 执行协程每秒加 1; 退出组合, 协程自动取消; key 变化协程先取消再执行
 
-```kotlin
-
-```
-
 + rememberCoroutineScope
 
 获取组合感知作用域，以便在可组合项外启动协程
