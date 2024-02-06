@@ -562,6 +562,11 @@ lifecycleScope.launch {
 2022-06-23 14:32:50.193 D/wlzhou: DefaultDispatcher-worker-4 -> world
 ```
 
+## App Startup
+
++ [Jetpack新成员，App Startup一篇就懂](https://guolin.blog.csdn.net/article/details/108026357?spm=1001.2014.3001.5502)
++ [Jetpack App Startup如何使用及原理分析](https://juejin.cn/post/7003238879641731102)
+
 ## 参考
 
 + [《安卓-深入浅出MVVM教程》应用篇-03 Cache （本地缓存）](https://www.jianshu.com/p/cf9482d71241)
