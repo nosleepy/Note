@@ -119,6 +119,16 @@ class MainActivity : Activity() {
 
 Activity 和 Dialog 属于应用窗口，Toast 和输入法属于系统窗口，PopupWindow 属于子窗口。
 
+#### 常见问题
+
++ 想让一个Window屏蔽掉系统手势怎么做?
+
+```java
+WindowManager.LayoutParams params = new WindowManager.LayoutParams();
+params.flags = WindowManager.LayoutParams.FLAG_FULLSCREEN;
+// WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL 将 Window 区域以外的单击事件传递给底层的 Window，当前 Window 内的单击事件自己处理, 该flag不设置可以屏蔽手势
+```
+
 #### 参考
 
 + [Android Window 机制探索](https://juejin.cn/post/6844903512447385614#heading-5)
