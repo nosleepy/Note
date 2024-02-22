@@ -132,7 +132,7 @@ params.flags = WindowManager.LayoutParams.FLAG_FULLSCREEN; // 必须设置全屏
 
 + 如何不显示StatusBar区域的内容?
 
-添加系统类型窗口,覆盖在StatusBar上面
+申请悬浮窗权限或者拥有系统权限,添加系统类型窗口,覆盖在StatusBar上面
 
 #### 参考
 
