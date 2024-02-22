@@ -37,6 +37,33 @@ class MainActivity : Activity() {
 
 WindowManager 的 LayoutParams 的默认类型是 TYPE_APPLICATION。
 
+#### 添加子窗口
+
+子窗口依赖于父窗口的token, 所以需要等父窗口添加完成才能添加
+
+```java
+getWindow().getDecorView().post(new Runnable() {
+    @Override
+    public void run() {
+        IBinder token = getWindow().getDecorView().getWindowToken();
+        WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams params = new WindowManager.LayoutParams();
+        params.height = 100;
+        params.width = 1024;
+        params.format = PixelFormat.TRANSPARENT;
+        params.gravity = Gravity.TOP;
+        params.flags = WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL ;
+        params.type = WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
+        params.token = token;
+        TextView view = new TextView(MainActivity.this);
+        view.setText("HelloWorld");
+        view.setTextColor(Color.RED);
+        view.setBackgroundColor(Color.GREEN);
+        windowManager.addView(view, params);
+    }
+});
+```
+
 #### 添加系统窗口
 
 添加权限，显示在其他应用上层
