@@ -121,7 +121,7 @@ Activity 和 Dialog 属于应用窗口，Toast 和输入法属于系统窗口，
 
 #### 常见问题
 
-+ 想让一个Window屏蔽掉系统手势怎么做?
++ 想让一个Window屏蔽掉系统手势和左右返回怎么做?
 
 ```java
 WindowManager.LayoutParams params = getWindow().getAttributes();
