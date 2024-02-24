@@ -139,6 +139,35 @@ setContentView(R.layout.activity_main);
 
 申请悬浮窗权限或者拥有系统权限,添加系统类型窗口,覆盖在StatusBar上面
 
++ Activity如何设置为全屏不显示状态栏
+
+```kotlin
+window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+```
+
++ Activity全屏模式显示状态栏内容
+
+```kotlin
+val params = window.attributes.apply {
+    width = 1024
+    height = 600
+}
+window.attributes = params
+window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+```
+
++ Activity禁用手势屏蔽左右返回
+
+```kotlin
+val params = window.attributes.apply {
+    systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+    width = 1024
+    height = 600
+}
+window.attributes = params
+window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+```
+
 #### 参考
 
 + [Android Window 机制探索](https://juejin.cn/post/6844903512447385614#heading-5)
