@@ -168,6 +168,21 @@ window.attributes = params
 window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 ```
 
++ 使用WindowInsetsController屏蔽系统手势导航,但是会默认隐藏状态栏,不太友好
+
+```kotlin
+val window = window
+val insetsController: WindowInsetsController?
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+    insetsController = window.insetsController
+    if (insetsController != null) {
+        window.setDecorFitsSystemWindows(false)
+        insetsController.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        insetsController.hide(WindowInsets.Type.systemBars())
+    }
+}
+```
+
 #### 参考
 
 + [Android Window 机制探索](https://juejin.cn/post/6844903512447385614#heading-5)
