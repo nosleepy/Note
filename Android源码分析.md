@@ -24,6 +24,7 @@ categories:
 #### PKMS 相关
 
 + [Android 系统服务 - PMS 的启动过程](https://juejin.cn/post/6916847924924121096?searchId=202402201348409646E7EA848FB2844D93)
++ [“终于懂了”系列：APK安装过程 完全解析！](https://juejin.cn/post/7028196921143459870)
 
 #### 权限相关
 
