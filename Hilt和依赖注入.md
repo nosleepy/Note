@@ -219,8 +219,10 @@ class MainActivity : AppCompatActivity() {
 
 ### 参考
 
-[简单谈谈Hilt——依赖注入框架 ](https://www.cnblogs.com/jimuzz/p/13930844.html)
++ [简单谈谈Hilt——依赖注入框架 ](https://www.cnblogs.com/jimuzz/p/13930844.html)
 
-[Android Jetpack--Hilt使用详解](https://zhuanlan.zhihu.com/p/413691642)
++ [Android Jetpack--Hilt使用详解](https://zhuanlan.zhihu.com/p/413691642)
 
-[Jetpack新成员，一篇文章带你玩转Hilt和依赖注入](https://blog.csdn.net/guolin_blog/article/details/109787732#commentBox)
++ [Jetpack新成员，一篇文章带你玩转Hilt和依赖注入](https://blog.csdn.net/guolin_blog/article/details/109787732#commentBox)
+
++ [Jetpack Hilt 框架的基本使用](https://blog.csdn.net/qq_39312146/article/details/130957791)
