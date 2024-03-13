@@ -567,6 +567,12 @@ lifecycleScope.launch {
 + [Jetpack新成员，App Startup一篇就懂](https://guolin.blog.csdn.net/article/details/108026357?spm=1001.2014.3001.5502)
 + [Jetpack App Startup如何使用及原理分析](https://juejin.cn/post/7003238879641731102)
 
+## SplashScreen
+
++ [android app启动页（闪屏页）白屏快速优化方案实践](https://juejin.cn/post/6972792876950355975?searchId=202403131116419B7C4F10519D31B88BAB)
++ [【Android爬坑周记】用SplashScreen做一个会动的开屏！](https://juejin.cn/post/7150692699350237191?searchId=202403131032150BDD90F1991424B568CB)
++ [Android SplashScreen API使用](https://juejin.cn/post/7189908561336467515?searchId=202403131032150BDD90F1991424B568CB)
+
 ## 参考
 
 + [《安卓-深入浅出MVVM教程》应用篇-03 Cache （本地缓存）](https://www.jianshu.com/p/cf9482d71241)
