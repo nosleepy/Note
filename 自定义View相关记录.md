@@ -31,7 +31,7 @@ categories:
 
 从截图可以看出文本实际绘制的位置在(x,y)的右上角, 也就是(0,0)右上角
 
-![](https://cdn.jsdelivr.net/gh/nosleepy/picture@master/img/text_draw_before)
+![](https://cdn.jsdelivr.net/gh/nosleepy/picture@master/img/text_draw_before.png)
 
 计算文本的宽高
 
@@ -53,4 +53,4 @@ canvas.drawText("100%", 0f - textWidth / 2, 0f + textHeight / 2, mPaint)
 
 最终的效果如下
 
-![](https://cdn.jsdelivr.net/gh/nosleepy/picture@master/img/text_draw_after)
+![](https://cdn.jsdelivr.net/gh/nosleepy/picture@master/img/text_draw_after.png)
